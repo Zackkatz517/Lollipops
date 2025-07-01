@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Lollipops</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .checkout-section {
+      max-width: 500px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 2rem;
+      text-align: center;
+    }
+    .bank-details {
+      background: var(--candy-yellow, #ffe066);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      font-size: 1.1rem;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: left;
+      display: inline-block;
+    }
+    .bank-details strong {
+      color: var(--candy-pink, #ff69b4);
+    }
+    .demo-note {
+      color: #b00;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-text">Lollipops</span>
+      <span class="tagline">Your online pick-a-mix candy store</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pick-mix.html">Pick & Mix</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="stickers.html">Stickers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="start-mixing.html">Start Mixing Now</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="checkout-section">
+      <h2>Checkout</h2>
+      <p>Thank you for building your dream tub! Please use the fake banking details below to complete your (demo) order:</p>
+      <div class="bank-details">
+        <div><strong>Bank Name:</strong> SweetBank</div>
+        <div><strong>Account Number:</strong> 1234567890</div>
+        <div><strong>Branch Code:</strong> 12345</div>
+        <div><strong>Reference:</strong> LOLLIPOPS-DEMO</div>
+      </div>
+      <div class="demo-note">This is a demo checkout page. No real payment will be processed.</div>
+    </section>
+  </main>
+  <script src="scripts/scripts.js"></script>
+</body>
+</html> 

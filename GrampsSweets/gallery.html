@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candy Gallery - Lollipops</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .gallery-section h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin-top: 2rem;
+      color: var(--candy-pink, #ff69b4);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-text">Lollipops</span>
+      <span class="tagline">Your online pick-a-mix candy store</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pick-mix.html">Pick & Mix</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="stickers.html">Stickers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="gallery-section">
+      <h2>Candy Gallery</h2>
+      <div class="gallery-grid">
+        <img src="Photos/OIP1.jpeg" alt="Candy 1">
+        <img src="Photos/OIP2.jpeg" alt="Candy 2">
+        <img src="Photos/OIP3.jpeg" alt="Candy 3">
+        <img src="Photos/OIP4.jpeg" alt="Candy 4">
+        <img src="Photos/OIP5.jpeg" alt="Candy 5">
+      </div>
+    </section>
+  </main>
+  <script src="scripts/scripts.js"></script>
+</body>
+</html> 
