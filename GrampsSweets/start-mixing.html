@@ -3,9 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lollipops - Your online pick-a-mix candy store</title>
+  <title>Start Mixing Now - Lollipops</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .mixing-hero {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .candy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .candy-card {
+      background: var(--candy-white, #fff);
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.15s;
+    }
+    .candy-card:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
+    .candy-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      background: var(--candy-pink, #ff69b4, #fff);
+    }
+    .candy-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--candy-pink, #ff69b4);
+      margin-bottom: 0.2rem;
+    }
+    .candy-desc {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .candy-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .candy-btn {
+      background: var(--candy-yellow, #ffe066);
+      color: var(--candy-pink, #ff69b4);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .candy-btn:hover {
+      background: var(--candy-pink, #ff69b4);
+      color: var(--candy-yellow, #ffe066);
+    }
+    .candy-weight {
+      font-size: 1rem;
+      min-width: 40px;
+      text-align: center;
+    }
+    .tub-schematic {
+      margin: 2rem auto 1rem auto;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .tub-bar {
+      width: 100%;
+      height: 32px;
+      background: var(--candy-blue, #8ecae6);
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .tub-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--candy-pink, #ff69b4), var(--candy-yellow, #ffe066));
+      border-radius: 1rem 0 0 1rem;
+      transition: width 0.3s;
+    }
+    .tub-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    .tub-summary {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .checkout-btn {
+      display: inline-block;
+      background: var(--candy-pink, #ff69b4);
+      color: var(--candy-white, #fff);
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: background 0.2s, color 0.2s;
+      margin-top: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    .checkout-btn:disabled {
+      background: #eee;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -25,19 +152,102 @@
       <li><a href="about.html">Our Story</a></li>
     </ul>
   </nav>
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <h1>Choose your favorite treats and make your dreams come true</h1>
-      <p class="subheadline">Build your perfect tub of joy. Flat rate R21.90 per 100g.</p>
-      <a href="start-mixing.html" class="cta-btn">Start Mixing Now</a>
+  <main>
+    <div class="mixing-hero">
+      <h1 style="font-family:'Playfair Display',serif;color:var(--candy-pink,#ff69b4);font-size:2.2rem;">Start Mixing Your Dream Tub!</h1>
+      <p style="font-size:1.2rem;color:var(--candy-blue,#8ecae6);">Pick your favorites below. R21.90 per 100g. Max 5kg per tub.</p>
     </div>
-    <div class="hero-image">
-      <div style="width:260px;height:260px;max-width:95vw;border-radius:50%;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);background:#fff;margin:auto;">
-        <img src="Photos/Logo.jpeg.jpg" alt="Lollipops Candy Logo" style="width:100%;height:100%;object-fit:cover;object-position:0 20%;display:block;">
+    <div class="tub-schematic">
+      <div class="tub-labels">
+        <span>0g</span>
+        <span>5kg</span>
       </div>
+      <div class="tub-bar">
+        <div class="tub-fill" id="tubFill" style="width:0%"></div>
+      </div>
+      <div class="tub-summary">
+        <span id="totalGrams">0g</span> &bull; <span id="totalPrice">R0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Checkout</button>
     </div>
-  </header>
+    <div class="candy-grid" id="candyGrid">
+      <!-- Candy cards will be injected by JS -->
+    </div>
+  </main>
+  <script>
+    // Candy data (12 creative examples, can be expanded)
+    const candies = [
+      { name: 'Sour Worms', desc: 'Tangy, chewy, and colorful!', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Gummy Bears', desc: 'Classic fruity bears in every color.', img: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Candy Hearts', desc: 'Sweet, soft, and full of love.', img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Rainbow Belts', desc: 'Fruity, sour, and super fun.', img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Jelly Beans', desc: 'A surprise in every bite.', img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Cola Bottles', desc: 'Fizzy, chewy cola flavor.', img: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Marshmallow Twists', desc: 'Soft, fluffy, and pastel.', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Chocolate Raisins', desc: 'Juicy raisins in chocolate.', img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Fizzy Rings', desc: 'Sour, sweet, and super chewy.', img: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Candy Snakes', desc: 'Long, wiggly, and fruity.', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Bubblegum Balls', desc: 'Colorful, classic bubblegum.', img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=80&h=80', },
+      { name: 'Licorice Allsorts', desc: 'A mix of licorice shapes and colors.', img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=facearea&w=80&h=80', },
+      // New sweets below
+      { name: 'Blueberry Twists', desc: 'Fruity blueberry candy twists.', img: 'Photos/OIP1.jpeg' },
+      { name: 'Banana', desc: 'Soft, chewy banana flavor sweets.', img: 'Photos/OIP2.jpeg' },
+      { name: 'Bears Assorted', desc: 'Assorted gummy bears in bulk.', img: 'Photos/OIP3.jpeg' },
+      { name: 'Berries Black & Red', desc: 'Juicy black and red berry gummies.', img: 'Photos/OIP4.jpeg' },
+      { name: 'Blue Sharks', desc: 'Blue shark-shaped gummies.', img: 'Photos/OIP5.jpeg' },
+    ];
+    const pricePer100g = 21.90;
+    const maxGrams = 5000;
+    let tub = Array(candies.length).fill(0); // grams per candy
 
-  <!-- All other sections removed as per request. Only the hero section remains. -->
+    function updateTub() {
+      const totalGrams = tub.reduce((a, b) => a + b, 0);
+      const totalPrice = (totalGrams / 100) * pricePer100g;
+      document.getElementById('totalGrams').textContent = totalGrams + 'g';
+      document.getElementById('totalPrice').textContent = 'R' + totalPrice.toFixed(2);
+      document.getElementById('tubFill').style.width = (totalGrams / maxGrams * 100) + '%';
+      document.getElementById('checkoutBtn').disabled = totalGrams === 0;
+    }
+
+    function renderCandies() {
+      const grid = document.getElementById('candyGrid');
+      grid.innerHTML = '';
+      candies.forEach((candy, i) => {
+        const card = document.createElement('div');
+        card.className = 'candy-card';
+        card.innerHTML = `
+          <img src="${candy.img}" alt="${candy.name}" class="candy-img">
+          <div class="candy-name">${candy.name}</div>
+          <div class="candy-desc">${candy.desc}</div>
+          <div class="candy-controls">
+            <button class="candy-btn" data-action="-" data-idx="${i}">–</button>
+            <span class="candy-weight" id="candyWeight${i}">${tub[i]}g</span>
+            <button class="candy-btn" data-action="+" data-idx="${i}">+</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      grid.querySelectorAll('.candy-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const idx = +btn.getAttribute('data-idx');
+          const action = btn.getAttribute('data-action');
+          let newWeight = tub[idx] + (action === '+' ? 100 : -100);
+          if (newWeight < 0) newWeight = 0;
+          const totalGrams = tub.reduce((a, b, j) => a + (j === idx ? newWeight : b), 0);
+          if (totalGrams > maxGrams) return;
+          tub[idx] = newWeight;
+          document.getElementById('candyWeight'+idx).textContent = tub[idx] + 'g';
+          updateTub();
+        });
+      });
+    }
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      window.location.href = 'checkout.html';
+    });
+
+    renderCandies();
+    updateTub();
+  </script>
 </body>
 </html> 
