@@ -149,17 +149,18 @@
       <li><a href="contact.html">Contact</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="start-mixing.html">Start Mixing Now</a></li>
+      <li><a href="about.html">Our Story</a></li>
     </ul>
   </nav>
   <main>
     <div class="mixing-hero">
       <h1 style="font-family:'Playfair Display',serif;color:var(--candy-pink,#ff69b4);font-size:2.2rem;">Start Mixing Your Dream Tub!</h1>
-      <p style="font-size:1.2rem;color:var(--candy-blue,#8ecae6);">Pick your favorites below. R21.90 per 100g. Max 1kg per tub.</p>
+      <p style="font-size:1.2rem;color:var(--candy-blue,#8ecae6);">Pick your favorites below. R21.90 per 100g. Max 5kg per tub.</p>
     </div>
     <div class="tub-schematic">
       <div class="tub-labels">
         <span>0g</span>
-        <span>1kg</span>
+        <span>5kg</span>
       </div>
       <div class="tub-bar">
         <div class="tub-fill" id="tubFill" style="width:0%"></div>
@@ -190,7 +191,7 @@
       { name: 'Licorice Allsorts', desc: 'A mix of licorice shapes and colors.', img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=facearea&w=80&h=80', },
     ];
     const pricePer100g = 21.90;
-    const maxGrams = 1000;
+    const maxGrams = 5000;
     let tub = Array(candies.length).fill(0); // grams per candy
 
     function updateTub() {
